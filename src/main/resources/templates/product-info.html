@@ -7,13 +7,13 @@
 <h1>BUYSELL</h1><hr>
 <h4>Подробная информация о товаре</h4>
 <div th:each="img : ${images}">
-  <img th:src="@{/images/{id}(id=${img.id})}" height="60px"/><br><br>
+    <img th:src="@{/images/{id}(id=${img.id})}" height="60px"/><br><br>
 </div>
 <b>Название товара: </b><span th:text="${product.title}"></span><br>
 <b>Описание товара: </b><span th:text="${product.description}"></span><br>
 <b>Автор: </b><span th:text="${product.author}"></span><br>
 <hr>
-<form action="@{/product/delete/{id}(id=${product.id})}" method="post">
+<form th:action="@{/product/delete/{id}(id=${product.id})}" method="post">
   <input type="submit" value="Удалить товар"/>
 </form>
 </body>

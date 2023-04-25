@@ -1,7 +1,9 @@
 package com.example.attempt.controllers;
 
 
+import com.example.attempt.models.Image;
 import com.example.attempt.models.Product;
+import com.example.attempt.repositories.ImageRepository;
 import com.example.attempt.services.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -13,11 +15,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
 public class ProductController {
     private final ProductService productService;
+    private final ImageRepository imageRepository;
 
     @GetMapping("/")
     public String products(@RequestParam(name = "title", required = false) String title, Model model) {
@@ -45,4 +49,5 @@ public class ProductController {
         productService.deleteProduct(id);
         return "redirect:/";
     }
+
 }
