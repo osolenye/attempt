@@ -1,34 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>BUYSELL</title>
+    <title>Main</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 </head>
 <body>
-<h1>BUYSELL</h1><hr>
 <#if user.email??>
-    <h3>Имя пользователя: <i>${user.name}</i></h3>
+    <h3>User name: <i>${user.name}</i></h3>
     <form action="/logout" method="post">
         <input type="hidden" name="_csrf" value="${_csrf.token}">
-        <input type="submit" value="Выйти"/>
+        <input type="submit" value="log out"/>
     </form>
 <#else>
-    <a href="/login">Войти</a></h1>
+    <a href="/login">Log in: </a></h1>
 </#if>
 <hr>
-<h4>Товары со всей России</h4>
 <form action="/" method="get">
-    Поиск по названию объявления: <input type="text" name="title">
-    <input type="submit" value="Поиск"/>
+    Find posts: <input type="text" name="title">
+    <input type="submit" value="search"/>
 </form>
-<#--<#list products as product>-->
-<#--    <div>-->
-<#--        <p><b>${product.title}</b> руб. | <a href="/product/${product.id}">Подробнее...</a></p>-->
-<#--    </div>-->
-<#--<#else>-->
-<#--    <h3>Товаров нет</h3>-->
-<#--</#list>-->
-<#if products?has_content>
+
     <div class="container mt-5">
         <div class="row">
             <#list products as product>
@@ -38,21 +29,17 @@
             </#list>
         </div>
     </div>
-<#else>
-    <h3>Товаров нет</h3>
-</#if>
 
 <#if user.email??>
     <hr>
-    <h3>Создать новый товар</h3>
     <form action="/product/create" method="post" enctype="multipart/form-data">
-        Название объявления: <input type="text" name="title"/><br><br>
-        Описание объявления: <input type="text" name="description"/><br><br>
-        Первая фотография: <input type="file" name="file1"/><br><br>
-        Вторая фотография: <input type="file" name="file2"/><br><br>
-        Третья фотография: <input type="file" name="file3"/><br><br>
+        post title: <input type="text" name="title"/><br><br>
+        description: <input type="text" name="description"/><br><br>
+        image №1: <input type="file" name="file1"/><br><br>
+        image №2: <input type="file" name="file2"/><br><br>
+        image №3: <input type="file" name="file3"/><br><br>
         <input type="hidden" name="_csrf" value="${_csrf.token}">
-        <input type="submit" value="Добавить товар"/>
+        <input type="submit" value="new post"/>
     </form>
 </#if>
 </body>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Main</title>
+    <title>post details</title>
 </head>
 <body>
 <#list images as img>
@@ -10,5 +10,9 @@
 <b>title: </b>${product.title}<br>
 <b>description: </b>${product.description}<br>
 <b>author: </b>${product.user.name}<br>
+
+<form action="/product/delete/${product.id}" method="post">
+    <input type="submit" value="Delete product"/>
+</form>
 </body>
 </html>
