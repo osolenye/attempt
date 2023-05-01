@@ -24,7 +24,7 @@
         <div class="row">
             <#list products as product>
                 <div class="col-md-2">
-                    <a href="/product/${product.id}"><img class="img-fluid" src='images/${product.getPreviewImageId()}'></a>
+                    <a href="/product/${product.id}"><img class="img-fluid" src='/images/${product.getPreviewImageId()}'></a>
                 </div>
             </#list>
         </div>

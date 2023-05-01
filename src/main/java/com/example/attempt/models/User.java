@@ -76,4 +76,3 @@ public class User implements UserDetails {
         return active;
     }
 }
-

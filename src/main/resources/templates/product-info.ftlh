@@ -9,6 +9,7 @@
 </#list>
 <b>title: </b>${product.title}<br>
 <b>description: </b>${product.description}<br>
-<b>author: </b>${product.user.name}<br>
+<b>author: </b> <a href="/user/${authorProduct.id}">${authorProduct.name}</a>
+<#--<b>author: </b>${product.user.name}<br>-->
 </body>
 </html>
