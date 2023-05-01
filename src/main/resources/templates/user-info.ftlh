@@ -9,15 +9,21 @@
 <h1>${user.name}</h1>
 
 <h1>User's posts: </h1>
-<div class="card" style="width: 18rem;">
-    <#list products as product>
-        <img class="card-img-top" src="/images/${product.getPreviewImageId()}" alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">${product.title}</h5>
-            <p class="card-text">${product.description}</p>
-            <a href="/post/${product.id}" class="btn btn-primary">more...</a>
-        </div>
-    </#list>
+<div class="container">
+    <div class="row">
+        <#list products as product>
+            <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+                <div class="card">
+                    <img class="card-img-top" src="/images/${product.getPreviewImageId()}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">${product.title}</h5>
+                        <p class="card-text">${product.description}</p>
+                        <a href="/product/${product.id}" class="btn btn-primary">more...</a>
+                    </div>
+                </div>
+            </div>
+        </#list>
+    </div>
 </div>
 
 

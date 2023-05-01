@@ -2,14 +2,25 @@
 <html>
 <head>
     <title>Main</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </head>
 <body>
 <#list images as img>
     <img src="/images/${img.id}" height="60px"/><br><br>
 </#list>
-<b>title: </b>${product.title}<br>
-<b>description: </b>${product.description}<br>
-<b>author: </b> <a href="/user/${authorProduct.id}">${authorProduct.name}</a>
-<#--<b>author: </b>${product.user.name}<br>-->
+<div class="card mt-3">
+    <div class="card-body">
+        <h5 class="card-title">${product.title}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">${authorProduct.name}</h6>
+        <p class="card-text">${product.description}</p>
+        <p class="card-text"><b>author: </b><a href="/user/${authorProduct.id}">${authorProduct.name}</a></p>
+    </div>
+</div>
+
+
 </body>
 </html>
