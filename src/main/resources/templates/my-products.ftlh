@@ -42,23 +42,6 @@
     <!-- Navbar -->
 </header>
 <h1>Your posts: </h1>
-<#--<div class="card" style="width: 18rem;">-->
-<#--    <#list products as product>-->
-<#--        <img class="card-img-top" src="/images/${product.getPreviewImageId()}" alt="Card image cap">-->
-<#--        <div class="card-body">-->
-<#--            <h5 class="card-title">${product.title}</h5>-->
-<#--            <p class="card-text">${product.description}</p>-->
-<#--            <a href="/product/${product.id}" class="btn btn-primary">more...</a>-->
-<#--        </div>-->
-<#--    </#list>-->
-<#--</div>-->
-
-<#--<form action="/logout" method="post">-->
-<#--    <input type="hidden" name="_csrf" value="${_csrf.token}"/>-->
-<#--    <button type="submit" style="text-align: center; width: 100%" class="btn btn-danger mb-2">-->
-<#--        logout-->
-<#--    </button>-->
-<#--</form>-->
 <div class="container">
     <div class="row">
         <#list products as product>
@@ -69,6 +52,11 @@
                         <h5 class="card-title">${product.title}</h5>
                         <p class="card-text">${product.description}</p>
                         <a href="/product/${product.id}" class="btn btn-primary">more...</a>
+                        <form action="/product/delete/${product.id}" method="post">
+                            <input type="hidden" name="_csrf" value="${_csrf.token}"/>
+
+                            <button type="submit">delete</button>
+                        </form>
                     </div>
                 </div>
             </div>
