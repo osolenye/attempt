@@ -59,4 +59,9 @@ public class ProductController {
         model.addAttribute("products", user.getProducts());
         return "my-products";
     }
+    @GetMapping("/post/create")
+    public String products(Principal principal, Model model) {
+        model.addAttribute("user", productService.getUserByPrincipal(principal));
+        return "postCreate";
+    }
 }

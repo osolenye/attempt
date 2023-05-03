@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html>
+<html data-bs-theme="dark">
 <head>
     <title>Log in</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
@@ -9,7 +9,7 @@
 <body>
 <header>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black">
         <div class="container-fluid">
             <button
                     class="navbar-toggler"
@@ -28,7 +28,7 @@
                         <a class="nav-link" aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/profile">Profile</a>
+                        <a class="nav-link" href="/my/products">Profile</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/login">Login</a>

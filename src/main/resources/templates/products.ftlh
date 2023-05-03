@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
+<html lang="en"  data-bs-theme="dark">
 <head>
-    <title>Main</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Main</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -11,7 +10,7 @@
 <body>
 <header>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black">
         <div class="container-fluid">
             <button
                     class="navbar-toggler"
@@ -30,7 +29,7 @@
                         <a class="nav-link" aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/profile">Profile</a>
+                        <a class="nav-link" href="/my/products">Profile</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/login">Login</a>
@@ -38,6 +37,18 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/about">About</a>
                     </li>
+                    <#if user.email??>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/post/create">Post</a>
+                    </li>
+                    </#if>
+                    <li class="nav-item">
+                        <form action="/" method="get" class="form-inline my-2 my-lg-0">
+                            <input <#--class="form-control mr-sm-2"--> type="text" name="title" placeholder="Find posts">
+                            <button class="btn btn-success my-2 my-sm-0" type="submit">search</button>
+                        </form>
+                    </li>
+<#--                    d-->
                 </ul>
             </div>
         </div>
@@ -93,11 +104,6 @@
         <a href="/login" class="btn btn-primary">Log in</a>
     </#if>
     <hr>
-    <form action="/" method="get" class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="text" name="title" placeholder="Find posts">
-        <button class="btn btn-success my-2 my-sm-0" type="submit">search</button>
-    </form>
-    <hr>
     <div class="row">
         <#list products as product>
             <div class="col-md-2">
@@ -109,33 +115,33 @@
             </div>
         </#list>
     </div>
-    <#if user.email??>
-        <hr>
-        <form action="/product/create" method="post" enctype="multipart/form-data">
-            <div class="form-group">
-                <label for="title">Post title:</label>
-                <input type="text" class="form-control" id="title" name="title" required>
-            </div>
-            <div class="form-group">
-                <label for="description">Description:</label>
-                <input type="text" class="form-control" id="description" name="description" required>
-            </div>
-            <div class="form-group">
-                <label for="file1">Image №1:</label>
-                <input type="file" class="form-control-file" id="file1" name="file1" required>
-            </div>
-            <div class="form-group">
-                <label for="file2">Image №2:</label>
-                <input type="file" class="form-control-file" id="file2" name="file2">
-            </div>
-            <div class="form-group">
-                <label for="file3">Image №3:</label>
-                <input type="file" class="form-control-file" id="file3" name="file3">
-            </div>
-            <input type="hidden" name="_csrf" value="${_csrf.token}">
-            <button type="submit" class="btn btn-primary">new post</button>
-        </form>
-    </#if>
+<#--    <#if user.email??>-->
+<#--        <hr>-->
+<#--        <form action="/product/create" method="post" enctype="multipart/form-data">-->
+<#--            <div class="form-group">-->
+<#--                <label for="title">Post title:</label>-->
+<#--                <input type="text" class="form-control" id="title" name="title" required>-->
+<#--            </div>-->
+<#--            <div class="form-group">-->
+<#--                <label for="description">Description:</label>-->
+<#--                <input type="text" class="form-control" id="description" name="description" required>-->
+<#--            </div>-->
+<#--            <div class="form-group">-->
+<#--                <label for="file1">Image №1:</label>-->
+<#--                <input type="file" class="form-control-file" id="file1" name="file1" required>-->
+<#--            </div>-->
+<#--            <div class="form-group">-->
+<#--                <label for="file2">Image №2:</label>-->
+<#--                <input type="file" class="form-control-file" id="file2" name="file2">-->
+<#--            </div>-->
+<#--            <div class="form-group">-->
+<#--                <label for="file3">Image №3:</label>-->
+<#--                <input type="file" class="form-control-file" id="file3" name="file3">-->
+<#--            </div>-->
+<#--            <input type="hidden" name="_csrf" value="${_csrf.token}">-->
+<#--            <button type="submit" class="btn btn-primary">new post</button>-->
+<#--        </form>-->
+<#--    </#if>-->
 </div>
 </body>
 </html>
