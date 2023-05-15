@@ -83,6 +83,9 @@ public class ProductService {
             log.error("Product with id = {} is not found", id);
         }
     }
+    public void deleteOtherProduct(Long id){
+        productRepository.deleteById(id);
+    }
 
     public Product getProductById(Long id) {
         return productRepository.findById(id).orElse(null);

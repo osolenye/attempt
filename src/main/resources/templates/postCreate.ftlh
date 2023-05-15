@@ -50,6 +50,11 @@
                             <button class="btn btn-success my-2 my-sm-0" type="submit">search</button>
                         </form>
                     </li>
+                    <li class="nav-item">
+                        <#if user.isAdmin()>
+                            <a class="nav-link"  href="/admin">admin</a>
+                        </#if>
+                    </li>
                     <#--                    d-->
                 </ul>
             </div>

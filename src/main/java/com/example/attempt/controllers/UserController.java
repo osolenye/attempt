@@ -57,6 +57,4 @@ public class UserController {
         model.addAttribute("products", user.getProducts());
         return "user-info";
     }
-
-
 }

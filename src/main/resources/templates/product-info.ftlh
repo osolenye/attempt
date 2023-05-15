@@ -35,6 +35,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/about">About</a>
                     </li>
+                    <li class="nav-item">
+                        <#if user.isAdmin()>
+                            <a class="nav-link"  href="/admin">admin</a>
+                        </#if>
+                    </li>
                 </ul>
             </div>
         </div>

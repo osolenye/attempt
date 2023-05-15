@@ -35,6 +35,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/about">About</a>
                     </li>
+                    <li class="nav-item">
+                        <#if user.isAdmin()>
+                            <a class="nav-link"  href="/admin">admin</a>
+                        </#if>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -54,6 +59,13 @@
                         <h5 class="card-title">${product.title}</h5>
                         <p class="card-text">${product.description}</p>
                         <a href="/product/${product.id}" class="btn btn-primary">more...</a>
+                        <#if userByPrincipal.isAdmin()>
+                            <form action="/product/delete/other/${product.id}" method="post">
+                                <input type="hidden" name="_csrf" value="${_csrf.token}"/>
+
+                                <button type="submit">delete</button>
+                            </form>
+                        </#if>
                     </div>
                 </div>
             </div>

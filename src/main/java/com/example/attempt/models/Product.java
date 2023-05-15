@@ -42,4 +42,6 @@ public class Product {
         image.setProduct(this);
         images.add(image);
     }
+
+
 }

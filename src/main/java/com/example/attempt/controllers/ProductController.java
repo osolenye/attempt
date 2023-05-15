@@ -64,4 +64,9 @@ public class ProductController {
         model.addAttribute("user", productService.getUserByPrincipal(principal));
         return "postCreate";
     }
+    @PostMapping("/product/delete/other/{id}")
+    public String deleteOtherProduct(@PathVariable Long id) {
+        productService.deleteOtherProduct(id);
+        return "redirect:/products";
+    }
 }
