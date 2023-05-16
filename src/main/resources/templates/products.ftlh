@@ -61,43 +61,7 @@
     <!-- Navbar -->
 </header>
 
-<#--<#if user.email??>-->
-<#--    <h3>User name: <i>${user.name}</i></h3>-->
-<#--    <form action="/logout" method="post">-->
-<#--        <input type="hidden" name="_csrf" value="${_csrf.token}">-->
-<#--        <input type="submit" value="log out"/>-->
-<#--    </form>-->
-<#--<#else>-->
-<#--    <a href="/login">Log in: </a></h1>-->
-<#--</#if>-->
-<#--<hr>-->
-<#--<form action="/" method="get">-->
-<#--    Find posts: <input type="text" name="title">-->
-<#--    <input type="submit" value="search"/>-->
-<#--</form>-->
 
-<#--    <div class="container mt-5">-->
-<#--        <div class="row">-->
-<#--            <#list products as product>-->
-<#--                <div class="col-md-2">-->
-<#--                    <a href="/product/${product.id}"><img class="img-fluid" height="90px" src='/images/${product.getPreviewImageId()}'></a>-->
-<#--                </div>-->
-<#--            </#list>-->
-<#--        </div>-->
-<#--    </div>-->
-
-<#--<#if user.email??>-->
-<#--    <hr>-->
-<#--    <form action="/product/create" method="post" enctype="multipart/form-data">-->
-<#--        post title: <input type="text" name="title"/><br><br>-->
-<#--        description: <input type="text" name="description"/><br><br>-->
-<#--        image №1: <input type="file" name="file1"/><br><br>-->
-<#--        image №2: <input type="file" name="file2"/><br><br>-->
-<#--        image №3: <input type="file" name="file3"/><br><br>-->
-<#--        <input type="hidden" name="_csrf" value="${_csrf.token}">-->
-<#--        <input type="submit" value="new post"/>-->
-<#--    </form>-->
-<#--</#if>-->
 <div class="container mt-5">
     <#if user.email??>
         <h3>User name: <i>${user.name}</i></h3>
@@ -110,43 +74,28 @@
     </#if>
     <hr>
     <div class="row">
-        <#list products as product>
-            <div class="col-md-2">
-                <div class="card" style="width: 10rem;">
-                    <a href="/product/${product.id}">
-                        <img class="card-img-top" src="/images/${product.getPreviewImageId()}" height="90px" alt="${product.title}">
-                    </a>
+<#--        <#list products as product>-->
+<#--            <div class="col-md-2">-->
+<#--                <div class="card" style="width: 10rem;">-->
+<#--                    <a href="/product/${product.id}">-->
+<#--                        <img class="card-img-top" src="/images/${product.getPreviewImageId()}" height="200px" alt="${product.title}">-->
+<#--                    </a>-->
+<#--                </div>-->
+<#--            </div>-->
+<#--        </#list>-->
+        <div class="row">
+            <#list products as product>
+                <div class="col-md-3 mb-3">
+                    <div class="card" style="width: 15rem;">
+                        <a href="/product/${product.id}">
+                            <img class="card-img-top" src="/images/${product.getPreviewImageId()}" height="300px" alt="${product.title}">
+                        </a>
+                    </div>
                 </div>
-            </div>
-        </#list>
+            </#list>
+        </div>
+
     </div>
-<#--    <#if user.email??>-->
-<#--        <hr>-->
-<#--        <form action="/product/create" method="post" enctype="multipart/form-data">-->
-<#--            <div class="form-group">-->
-<#--                <label for="title">Post title:</label>-->
-<#--                <input type="text" class="form-control" id="title" name="title" required>-->
-<#--            </div>-->
-<#--            <div class="form-group">-->
-<#--                <label for="description">Description:</label>-->
-<#--                <input type="text" class="form-control" id="description" name="description" required>-->
-<#--            </div>-->
-<#--            <div class="form-group">-->
-<#--                <label for="file1">Image №1:</label>-->
-<#--                <input type="file" class="form-control-file" id="file1" name="file1" required>-->
-<#--            </div>-->
-<#--            <div class="form-group">-->
-<#--                <label for="file2">Image №2:</label>-->
-<#--                <input type="file" class="form-control-file" id="file2" name="file2">-->
-<#--            </div>-->
-<#--            <div class="form-group">-->
-<#--                <label for="file3">Image №3:</label>-->
-<#--                <input type="file" class="form-control-file" id="file3" name="file3">-->
-<#--            </div>-->
-<#--            <input type="hidden" name="_csrf" value="${_csrf.token}">-->
-<#--            <button type="submit" class="btn btn-primary">new post</button>-->
-<#--        </form>-->
-<#--    </#if>-->
 </div>
 </body>
 </html>
