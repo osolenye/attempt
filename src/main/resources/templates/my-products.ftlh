@@ -35,8 +35,13 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/about">About</a>
                     </li>
+                    <#if user.email??>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/post/create">Post</a>
+                        </li>
+                    </#if>
                     <li class="nav-item">
-                        <#if user.isAdmin()>
+                        <#if userByPrincipal.isAdmin()>
                             <a class="nav-link"  href="/admin">admin</a>
                         </#if>
                     </li>
