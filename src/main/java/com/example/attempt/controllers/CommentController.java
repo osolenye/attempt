@@ -41,4 +41,9 @@ public class CommentController {
         if (principal == null) return new User();
         return userRepository.findByEmail(principal.getName());
     }
+    @PostMapping("/comment/delete/{id}")
+    public String deleteProduct(@PathVariable Long id) {
+        commentService.deleteComment(id);
+        return "redirect:/";
+    }
 }

@@ -66,6 +66,16 @@ mail: <b>${user.email}</b>
 <a class="btn btn-dark mb-3" style="text-align: center; width: 100%"
    href="/my/products">
     posts:
+    div class="card" style="width: 18rem;">
+        <#list products as product>
+            <img class="card-img-top" src="images/${product.getPreviewImageId()}" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">${product.title}</h5>
+                <p class="card-text">${product.description}</p>
+                <a href="/post/${product.id}" class="btn btn-primary">more...</a>
+            </div>
+        </#list>
+    </div>
 </a>
 <form action="/logout" method="post">
     <input type="hidden" name="_csrf" value="${_csrf.token}"/>

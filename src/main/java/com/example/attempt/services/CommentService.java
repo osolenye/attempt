@@ -31,4 +31,8 @@ public class CommentService {
         return userRepository.findByEmail(principal.getName());
     }
 
+    public void deleteComment(Long id) {
+        commentRepository.deleteById(id);
+    }
+
 }

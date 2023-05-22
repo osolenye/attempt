@@ -6,6 +6,8 @@ import com.example.attempt.models.Product;
 import com.example.attempt.models.User;
 import com.example.attempt.services.ProductService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,7 +40,15 @@ public class ProductController {
         model.addAttribute("images", product.getImages());
         model.addAttribute("authorProduct", product.getUser());
         model.addAttribute("comments", product.getComments());
+        model.addAttribute("userName", getCurrentUsername());
         return "product-info";
+    }
+    public String getCurrentUsername() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication != null) {
+            return authentication.getName();
+        }
+        return null; // No user is authenticated
     }
 
     @PostMapping("/product/create")

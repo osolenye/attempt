@@ -215,6 +215,12 @@
                         <h5 class="card-title">${comment.user.username}</h5>
                         <p class="card-text">${comment.commentText}</p>
                     </div>
+                    <#if userName == comment.user.username>
+                        <form action="/comment/delete/${comment.id}" method="post">
+                            <input type="hidden" name="_csrf" value="${_csrf.token}"/>
+                            <button type="submit">delete</button>
+                        </form>
+                    </#if>
                 </div>
             </div>
         </#list>

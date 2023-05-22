@@ -1,11 +1,9 @@
 package com.example.attempt.controllers;
 
-import com.example.attempt.models.Product;
 import com.example.attempt.models.User;
 import com.example.attempt.services.ProductService;
 import com.example.attempt.services.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
