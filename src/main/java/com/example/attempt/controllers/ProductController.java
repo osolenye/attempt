@@ -1,6 +1,7 @@
 package com.example.attempt.controllers;
 
 
+import com.example.attempt.models.Comment;
 import com.example.attempt.models.Product;
 import com.example.attempt.models.User;
 import com.example.attempt.services.ProductService;
@@ -36,6 +37,7 @@ public class ProductController {
         model.addAttribute("product", product);
         model.addAttribute("images", product.getImages());
         model.addAttribute("authorProduct", product.getUser());
+        model.addAttribute("comments", product.getComments());
         return "product-info";
     }
 
@@ -70,4 +72,5 @@ public class ProductController {
         productService.deleteOtherProduct(id);
         return "redirect:/";
     }
+
 }

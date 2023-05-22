@@ -85,8 +85,8 @@
 <#--        </#list>-->
         <div class="row">
             <#list products as product>
-                <div class="col-md-3 mb-3">
-                    <div class="card" style="width: 15rem;">
+                <div class="col-md-3 mb-1">
+                    <div class="card" style="width: 20rem;">
                         <a href="/product/${product.id}">
                             <img class="card-img-top" src="/images/${product.getPreviewImageId()}" height="300px" alt="${product.title}">
                         </a>

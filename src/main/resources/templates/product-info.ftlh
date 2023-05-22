@@ -80,5 +80,19 @@
 </div>
 
 
+<form action="/comment/create/${product.id}" method="post">
+    comment text: <input type="text" name="commentText"/>
+    <input type="hidden" name="_csrf" value="${_csrf.token}">
+    <input type="submit" value="Добавить товар"/>
+</form>
+<#list comments as comment>
+    <div>
+        <h1 ${comment.commentText}></h1>
+    </div>
+</#list>
+
+
+
+
 </body>
 </html>
