@@ -190,9 +190,8 @@
 
 <div class="card mt-3">
     <div class="card-body">
-        <h5 class="card-title">${product.title}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">${authorProduct.name}</h6>
-        <p class="card-text">${product.description}</p>
+        <h5 class="card-title">Title: ${product.title}</h5>
+        <p class="card-text">Description: ${product.description}</p>
         <p class="card-text"><b>Author: </b><a href="/user/${authorProduct.id}">${authorProduct.name}</a></p>
     </div>
 </div>
