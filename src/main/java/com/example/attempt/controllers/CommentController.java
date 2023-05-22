@@ -44,6 +44,6 @@ public class CommentController {
     @PostMapping("/comment/delete/{id}")
     public String deleteProduct(@PathVariable Long id) {
         commentService.deleteComment(id);
-        return "redirect:/";
+        return "redirect:/}";
     }
 }
