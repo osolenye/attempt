@@ -2,8 +2,11 @@
 <html data-bs-theme="dark">
 <head>
     <title>Main</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+            crossorigin="anonymous"></script>
 </head>
 <body>
 <header>
@@ -37,7 +40,7 @@
                     </li>
                     <li class="nav-item">
                         <#if user.isAdmin()>
-                            <a class="nav-link"  href="/admin">admin</a>
+                            <a class="nav-link" href="/admin">admin</a>
                         </#if>
                     </li>
                 </ul>
@@ -54,9 +57,9 @@
 <div id="carouselExample" class="carousel slide">
     <div class="carousel-inner">
         <#list images as img>
-        <div class="carousel-item active">
-            <img src="/images/${img.id}" class="d-block w-100" height="700px" alt="...">
-        </div>
+            <div class="carousel-item active">
+                <img src="/images/${img.id}" class="d-block w-100" height="700px" alt="...">
+            </div>
         </#list>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
@@ -83,15 +86,44 @@
 <form action="/comment/create/${product.id}" method="post">
     comment text: <input type="text" name="commentText"/>
     <input type="hidden" name="_csrf" value="${_csrf.token}">
-    <input type="submit" value="Добавить товар"/>
+    <input type="submit" value="add comment"/>
 </form>
+
+<h1>Comments:</h1>
 <#list comments as comment>
-    <div>
-        <h1 ${comment.commentText}></h1>
-    </div>
+    <section class="gradient-custom">
+        <div class="container my-5 py-5">
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-12 col-lg-10 col-xl-8">
+                    <div class="card">
+                        <div class="card-body p-4">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="d-flex flex-start">
+                                        <div class="flex-grow-1 flex-shrink-1">
+                                            <div>
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <p class="mb-1">
+                                                        ${comment.user.username} <span class="small">-${comment.dateOfCreated}</span>
+                                                    </p>
+                                                </div>
+                                                <p class="small mb-0">
+                                                    ${comment.commentText}
+                                                </p>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </#list>
-
-
 
 
 </body>
