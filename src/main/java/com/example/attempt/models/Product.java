@@ -45,6 +45,6 @@ public class Product {
 
 
     //comments please
-    @OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY, mappedBy = "product")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "product")
     private List<Comment> comments = new ArrayList<>();
 }
